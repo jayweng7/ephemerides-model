@@ -12,8 +12,10 @@ file = open("earth.txt", "r")
 start = '$$SOE'
 end = '$$EOE'
 
-while (start not in file.readline()):
-    file.readline()
+s = file.readline()
+while (start not in s):
+    s = file.readline()
+   
     
 #==============================================================================
 # print(file.readline())
@@ -36,8 +38,9 @@ while (start not in file.readline()):
 # print(s5)
 #==============================================================================
 
-ephemeris = np.empty([31, 3])
+ephemeris = np.empty([13, 3])
 i=0
+
 
 while True:
      s = file.readline()
@@ -53,8 +56,10 @@ while True:
      i += 1
 
      
-for i in range(1, 31):
-     print(ephemeris[i][0])
-     print(ephemeris[i][1])
-     print(ephemeris[i][2])
+#==============================================================================
+# for i in range(0, 13):
+#      print(ephemeris[i][0])
+#      print(ephemeris[i][1])
+#      print(ephemeris[i][2])
+#==============================================================================
     
