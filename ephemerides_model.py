@@ -103,6 +103,8 @@ ax = p3.Axes3D(fig)
 # print(data)
 #==============================================================================
 
+s=10
+
 def func(num):
     ax.cla()
     
@@ -113,16 +115,16 @@ def func(num):
     ax.set_ybound(-minmax, minmax)
     ax.set_zbound(-minmax/10, minmax/10)
 
-    ax.scatter3D(0,0,0,zdir='z')
-    ax.scatter3D(ephemeris_m1[num][0], ephemeris_m1[num][1], ephemeris_m1[num][2])
-    ax.scatter3D(ephemeris_v[num][0], ephemeris_v[num][1], ephemeris_v[num][2])
-    ax.scatter3D(ephemeris_e[num][0], ephemeris_e[num][1], ephemeris_e[num][2])  
-    ax.scatter3D(ephemeris_m[num][0], ephemeris_m[num][1], ephemeris_m[num][2])
-    ax.scatter3D(ephemeris_j[num][0], ephemeris_j[num][1], ephemeris_j[num][2])
-    ax.scatter3D(ephemeris_s[num][0], ephemeris_s[num][1], ephemeris_s[num][2])
-    ax.scatter3D(ephemeris_u[num][0], ephemeris_u[num][1], ephemeris_u[num][2])
-    ax.scatter3D(ephemeris_n[num][0], ephemeris_n[num][1], ephemeris_n[num][2])
-    ax.scatter3D(ephemeris_p[num][0], ephemeris_p[num][1], ephemeris_p[num][2])
+    ax.scatter3D(0,0,0,zdir='z', c='yellow')
+    ax.scatter3D(ephemeris_m1[num][0], ephemeris_m1[num][1], ephemeris_m1[num][2], c='grey', s=s)
+    ax.scatter3D(ephemeris_v[num][0], ephemeris_v[num][1], ephemeris_v[num][2], c='orange', s=s)
+    ax.scatter3D(ephemeris_e[num][0], ephemeris_e[num][1], ephemeris_e[num][2], c='blue', s=s)  
+    ax.scatter3D(ephemeris_m[num][0], ephemeris_m[num][1], ephemeris_m[num][2], c='red', s=s)
+    ax.scatter3D(ephemeris_j[num][0], ephemeris_j[num][1], ephemeris_j[num][2], c='sandybrown', s=112*s)
+    ax.scatter3D(ephemeris_s[num][0], ephemeris_s[num][1], ephemeris_s[num][2], c='bisque', s=95*s)
+    ax.scatter3D(ephemeris_u[num][0], ephemeris_u[num][1], ephemeris_u[num][2], c='darkturquoise', s=40*s)
+    ax.scatter3D(ephemeris_n[num][0], ephemeris_n[num][1], ephemeris_n[num][2], c='deepskyblue', s=39*s)
+    ax.scatter3D(ephemeris_p[num][0], ephemeris_p[num][1], ephemeris_p[num][2], c='dimgray', s=s)
 
 anim = animation.FuncAnimation(fig, func, 4750, interval=1, blit=False)
 
