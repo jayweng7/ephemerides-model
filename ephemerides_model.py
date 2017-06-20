@@ -11,28 +11,62 @@ import mpl_toolkits.mplot3d.axes3d as p3
 import matplotlib.animation as animation
 import re
 
-file = open("earth_1year_day.txt", "r")
-start = '$$SOE'
-end = '$$EOE'
-
-s = file.readline()
-while (start not in s):
-    s = file.readline()
+class planet():
+    start = '$$SOE'
+    end = '$$EOE'
     
-ephemeris = np.empty([366, 3])
-i=0
+    def __init__(self, name):
+        self.name = name
+    
+    def getData(self, filename):
+        file = open(filename)
+        s = file.readline()
+        while (self.start not in s):
+            s = file.readline()
+            
+        ephemeris = np.empty([366, 3])
+        i = 0
+        
+        while True:
+            s = file.readline()
+            if (self.end in s):
+                break
+            s1,s2,s3,s4,s5 = s.split(", ")
+            s5 = re.sub(',', '', s5)
+            ephemeris[i][0] = s3
+            ephemeris[i][1] = s4
+            ephemeris[i][2] = s5
+            i += 1
+        
+        return ephemeris
+        
+#==============================================================================
+# file = open("earth_1year_day.txt", "r")
+# start = '$$SOE'
+# end = '$$EOE'
+# 
+# s = file.readline()
+# while (start not in s):
+#     s = file.readline()
+#     
+# ephemeris = np.empty([366, 3])
+# i=0
+# 
+# 
+# while True:
+#      s = file.readline()
+#      if (end in s):
+#          break
+#      s1,s2,s3,s4,s5 = s.split(", ")
+#      s5 = re.sub(',', '', s5)
+#      ephemeris[i][0] = s3
+#      ephemeris[i][1] = s4
+#      ephemeris[i][2] = s5
+#      i += 1
+#==============================================================================
 
-
-while True:
-     s = file.readline()
-     if (end in s):
-         break
-     s1,s2,s3,s4,s5 = s.split(", ")
-     s5 = re.sub(',', '', s5)
-     ephemeris[i][0] = s3
-     ephemeris[i][1] = s4
-     ephemeris[i][2] = s5
-     i += 1
+earth = planet
+ephemeris = earth.getData(earth, 'earth.txt')
 
 minmax = 1000000000
 
