@@ -16,7 +16,7 @@ JPL's HORIZONS web tool provides the ephemeris (a table of the calculated positi
 Using this tool, setting the Sun as the coordinate centre, we select the date range and step (1 day in this case,) and ask for positions only given as x,y,z-vectors.
 It returns a .txt file that looks like this:
 
-'''
+```
 *******************************************************************************
 Revised: Jul 31, 2013                  Earth                                399
  
@@ -96,6 +96,12 @@ $$SOE
 2462671.500000000, A.D. 2030-Jun-19 00:00:00.0000, -6.982412442849495E+06, -1.518359198665248E+08,  1.027031955035031E+04,
 $$EOE
 **************************************************************************************************************************
-'''
+```
+
+![Default view of inner planets](https://github.com/jayweng7/ephemerides-model/blob/master/inner_default.gif)
+
+![Top view of inner planets](https://github.com/jayweng7/ephemerides-model/blob/master/inner_top.gif)
+
+![Whole model](https://github.com/jayweng7/ephemerides-model/blob/master/all.gif)
 
 
